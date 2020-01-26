@@ -1,7 +1,9 @@
 #pragma once
 #include <cstdlib>
+#include <iostream>
 
 namespace AVL {
+	using namespace std;
 	struct AVLTree {
 		AVLTree* left = NULL;
 		AVLTree* right = NULL;
