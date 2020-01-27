@@ -166,9 +166,18 @@ namespace AVL {
 	AVLTree* checkBalance(AVLTree* root) {
 		int balance = getBalance(root);
 		if (balance >= 2) {
+			int leftBalance = getBalance(root->left);
+			if (leftBalance < 0) {
+				root->left = leftRotate(root->left);
+			}
 			root = rightRotate(root);
+			
 		}
 		else if (balance <= -2) {
+			int rightBalance = getBalance(root->right);
+			if (rightBalance > 0) {
+				root->right = rightRotate(root->right);
+			}
 			root = leftRotate(root);
 		}
 		return root;
